@@ -9,7 +9,7 @@ namespace HelloWorld.Droid
     using Android.Support.V4.App;
     using Android.Support.V4.View;
 
-    [Activity (Theme = "@style/MyTheme", Label = "HelloWorld.Droid",Icon = "@drawable/icon2")]
+    [Activity (Theme = "@style/MyTheme", Label = "TMDB",Icon = "@drawable/icon2")]
     public class MainActivity : FragmentActivity
     {
         protected override void OnCreate(Bundle bundle)

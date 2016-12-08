@@ -39,16 +39,17 @@ namespace HelloWorld.Droid
 			var tabLayout = activity.FindViewById<TabLayout>(Resource.Id.sliding_tabs);
 			tabLayout.SetupWithViewPager(viewPager);
 
-			//SetToolbar(activity, toolbar);
-
 			tabLayout.TabSelected += async (sender, args) =>
 				{
-					//tabLayout.Enabled = false;
+					viewPager.Enabled = false;
+
 					var tab = args.Tab;
 					if (tab.Position == 1)
 					{
 						await _otherFragment.FetchTopRatedMovies();
 					}
+
+					viewPager.Enabled = true;
 				};
 
 			SetToolbar(activity, toolbar);

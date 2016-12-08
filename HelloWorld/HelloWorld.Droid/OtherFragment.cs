@@ -30,45 +30,16 @@ namespace HelloWorld.Droid
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
-
 			var rootView = inflater.Inflate(Resource.Layout.TopRated, container, false);
 
-			//var button = rootView.FindViewById<Button>(Resource.Id.topButton);
 			spinner = rootView.FindViewById<ProgressBar>(Resource.Id.marker_progress2);
+			spinner.Visibility = ViewStates.Visible;
 
-			//button.Click += async delegate
-			//{
-
-			//	button.Enabled = false;
-			//	_movies.AllMovies.Clear();
-
-				spinner.Visibility = ViewStates.Visible;
-
-			/*	var movieApi = MovieDbFactory.Create<DM.MovieApi.MovieDb.Movies.IApiMovieRequest>().Value;
-				DM.MovieApi.ApiResponse.ApiSearchResponse<DM.MovieApi.MovieDb.Movies.MovieInfo> response = await movieApi.GetTopRatedAsync();
-
-				foreach (var i in response.Results)
-				{
-					var resp = await movieApi.GetCreditsAsync(i.Id);
-					var response2 = await movieApi.FindByIdAsync(i.Id);
-					var tmpmovie = new Movie();
-
-					_movies.AddMovie(i, resp, response2, tmpmovie);
-				}*/
-
-				/*var intent = new Intent(Context, typeof(MovieListActivity));
-				intent.PutExtra("movieList", JsonConvert.SerializeObject(_movies.AllMovies));
-				StartActivity(intent);*/
-
-				//spinner.Visibility = ViewStates.Gone;
-			//};
 			return rootView;
 		}
 
 		public async Task FetchTopRatedMovies()
 		{
-
-
 			_movies.AllMovies.Clear();
 
 			var movieApi = MovieDbFactory.Create<DM.MovieApi.MovieDb.Movies.IApiMovieRequest>().Value;
@@ -76,10 +47,8 @@ namespace HelloWorld.Droid
 
 			foreach (var i in response.Results)
 			{
-
 				var resp = await movieApi.GetCreditsAsync(i.Id);
 				var response2 = await movieApi.FindByIdAsync(i.Id);
-
 				var tmpmovie = new Movie();
 
 				_movies.AddMovie(i, resp, response2, tmpmovie);
