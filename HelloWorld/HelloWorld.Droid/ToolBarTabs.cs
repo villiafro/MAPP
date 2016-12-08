@@ -20,10 +20,11 @@ namespace HelloWorld.Droid
 	{
 		public static void Construct(FragmentActivity activity, Toolbar toolbar)
 		{
+			var _otherFragment = new OtherFragment();
 			var fragments = new Fragment[]
 								{
 									new MovieInputFragment(),
-									new OtherFragment()
+									_otherFragment
 								};
 			var titles = CharSequence.ArrayFromStringArray(new[]
 								{
@@ -38,7 +39,20 @@ namespace HelloWorld.Droid
 			var tabLayout = activity.FindViewById<TabLayout>(Resource.Id.sliding_tabs);
 			tabLayout.SetupWithViewPager(viewPager);
 
+			//SetToolbar(activity, toolbar);
+
+			tabLayout.TabSelected += async (sender, args) =>
+				{
+					//tabLayout.Enabled = false;
+					var tab = args.Tab;
+					if (tab.Position == 1)
+					{
+						await _otherFragment.FetchTopRatedMovies();
+					}
+				};
+
 			SetToolbar(activity, toolbar);
+
 		}
 
 		public static void SetToolbar(Activity activity, Toolbar toolbar)

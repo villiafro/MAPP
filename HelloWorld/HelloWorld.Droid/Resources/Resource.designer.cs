@@ -2224,8 +2224,8 @@ namespace HelloWorld.Droid
 			// aapt resource value: 0x7f09007c
 			public const int marker_progress = 2131296380;
 			
-			// aapt resource value: 0x7f090090
-			public const int marker_progress2 = 2131296400;
+			// aapt resource value: 0x7f09008f
+			public const int marker_progress2 = 2131296399;
 			
 			// aapt resource value: 0x7f090083
 			public const int media_actions = 2131296387;
@@ -2418,9 +2418,6 @@ namespace HelloWorld.Droid
 			
 			// aapt resource value: 0x7f09001a
 			public const int top = 2131296282;
-			
-			// aapt resource value: 0x7f09008f
-			public const int topButton = 2131296399;
 			
 			// aapt resource value: 0x7f09004a
 			public const int topPanel = 2131296330;

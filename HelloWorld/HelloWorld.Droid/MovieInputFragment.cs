@@ -36,6 +36,8 @@ namespace HelloWorld.Droid
             var spinner = rootView.FindViewById<ProgressBar>(Resource.Id.marker_progress);
 
             button.Click += async delegate {
+
+				button.Enabled = false;
                 _movies.AllMovies.Clear();
                 var manager = (InputMethodManager)Context.GetSystemService(Context.InputMethodService);
                 manager.HideSoftInputFromWindow(search.WindowToken, 0);
