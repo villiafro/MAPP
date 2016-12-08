@@ -6,6 +6,7 @@ using DM.MovieApi.ApiResponse;
 using DM.MovieApi.MovieDb.Movies;
 using MovieDownload;
 using UIKit;
+using HelloWorld.Model;
 
 namespace HelloWorld.iOS
 {

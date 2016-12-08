@@ -3,19 +3,29 @@ using Android.App;
 using Android.OS;
 using Newtonsoft.Json;
 
+
+using Android.Widget;
+
 namespace HelloWorld.Droid
 {
-    [Activity(Label = "List of Movies")]
-    public class MovieListActivity : ListActivity
+	[Activity(Theme = "@style/MyTheme", Label = "Movie list")]
+    public class MovieListActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             //get info from bundle or intent
+			this.SetContentView(Resource.Layout.MovieList);
 
             var jsonStr = Intent.GetStringExtra("movieList");
             var movieList = JsonConvert.DeserializeObject<List<Movie>>(jsonStr);
-            ListAdapter = new MovieListAdapter(this, movieList);
+            
+			var listview = this.FindViewById<ListView>(Resource.Id.namelistview);
+			listview.Adapter = new MovieListAdapter(this, movieList);
+
+			var toolbar = this.FindViewById<Toolbar>(Resource.Id.toolbar);
+			this.SetActionBar(toolbar);
+			this.ActionBar.Title = this.GetString(Resource.String.ToolbarTitle);
         }
     }
 }

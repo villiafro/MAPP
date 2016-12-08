@@ -2,6 +2,7 @@
 using Foundation;
 using HelloWorld.iOS.Controllers;
 using UIKit;
+using HelloWorld.Model;
 
 namespace HelloWorld.iOS
 {

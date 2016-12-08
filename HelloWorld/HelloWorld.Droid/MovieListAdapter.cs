@@ -4,10 +4,8 @@ using Android.Views;
 using Android.Widget;
 using Square.Picasso;
 
-
 namespace HelloWorld.Droid
 {
-
     public class MovieListAdapter : BaseAdapter<Movie>
     {
         private readonly Activity _context;
@@ -28,16 +26,15 @@ namespace HelloWorld.Droid
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var view = convertView ?? _context.LayoutInflater.Inflate(Resource.Layout.MovieListItem, null);
-            /*var view = convertView;
+            var view = convertView;
             if (view == null)
             {
                 view = _context.LayoutInflater.Inflate(Resource.Layout.MovieListItem, null);
-            }*/
+            }
 
             var movie = _movieList[position];
             view.FindViewById<TextView>(Resource.Id.title).Text = movie.Title + " (" + movie.Year + ")";
-            //view.FindViewById<TextView>(Resource.Id.actors).Text = movie.Actors;
+            view.FindViewById<TextView>(Resource.Id.actors).Text = movie.Actors;
 
             var imageview = view.FindViewById<ImageView>(Resource.Id.image);
 
