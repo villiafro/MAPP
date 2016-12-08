@@ -35,30 +35,25 @@ namespace HelloWorld.Model
                 }
             }
 
-            var actors = new string[3];
-            string actors3;
+			string actorList;
 
-            if (credit.Item.CastMembers.Count == 0)
-            {
-                actors3 = "";
-            }
-            else
-            {
-                var j = 0;
-                var k = 0;
-                while ((j < 3) && (k < credit.Item.CastMembers.Count))
-                {
-                    if (!credit.Item.CastMembers[k].Equals(null))
-                    {
-                        actors[k] = credit.Item.CastMembers[k].Name;
-                        j++;
-                    }
-                    k++;
-                }
+			if (credit.Item.CastMembers.Count == 0)
+			{
+				actorList = "";
+			}
+			else
+			{
+				actorList = credit.Item.CastMembers[0].Name;
+			}
 
-                actors3 = actors[0] + ", " + actors[1] + ", " + actors[2];
+			for (var j = 1;(j<3) && (j < credit.Item.CastMembers.Count); j++)
+			{
+				if (!credit.Item.CastMembers[j].Equals(null))
+				{
+					actorList += ", " + credit.Item.CastMembers[j].Name;
+				}
+			}
 
-            }
 
             var imagelink = i.PosterPath ?? "not_found";
 
@@ -66,7 +61,7 @@ namespace HelloWorld.Model
             tmpmovie.Id = i.Id;
             tmpmovie.Title = i.Title;
             tmpmovie.Year = i.ReleaseDate.Year;
-            tmpmovie.Actors = actors3;
+            tmpmovie.Actors = actorList;
             tmpmovie.ImageName = imagelink;
             tmpmovie.Runtime = info.Item.Runtime;
             tmpmovie.Genre = genreList;

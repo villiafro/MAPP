@@ -9,21 +9,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="serif-monospace"
+        android:fontFamily="AmericanTypewriter"
         android:textSize="25dp"
-        android:textColor="@color/saddlebrown"
         android:id="@+id/title" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="AmericanTypewriter"
         android:textSize="18dp"
-        android:textColor="@color/green"
         android:id="@+id/actors"
         android:layout_below="@id/title" />
     <ImageView
         android:id="@+id/image"
-        android:layout_width="133px"
-        android:layout_height="133px"
+        android:layout_width="180px"
+        android:layout_height="180px"
         android:layout_alignParentRight="true" />
 </RelativeLayout>
