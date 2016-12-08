@@ -28,7 +28,7 @@ namespace HelloWorld.Droid
 			var titles = CharSequence.ArrayFromStringArray(new[]
 								{
 									"Movies",
-									"Other"
+									"Top Rated"
 								});
 
 			var viewPager = activity.FindViewById<ViewPager>(Resource.Id.viewpager);

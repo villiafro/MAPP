@@ -135,6 +135,7 @@
     <AndroidResource Include="Resources\layout\tabbar.xml" />
     <AndroidResource Include="Resources\layout\toolbar.xml" />
     <AndroidResource Include="Resources\layout\MovieList.axml" />
+    <AndroidResource Include="Resources\layout\TopRated.axml" />
   </ItemGroup>
   <Import Project="..\..\MovieDownload\MovieDownload.projitems" Label="Shared" Condition="Exists('..\..\MovieDownload\MovieDownload.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
