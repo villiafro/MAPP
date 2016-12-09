@@ -9,7 +9,7 @@ namespace HelloWorld.Droid
     public class MovieListAdapter : BaseAdapter<Movie>
     {
         private readonly Activity _context;
-        private const string ImageUrl = "http://image.tmdb.org/t/p/original";
+        private const string ImageUrl = "http://image.tmdb.org/t/p/w92";
 
         private readonly List<Movie> _movieList;
 

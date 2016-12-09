@@ -46,6 +46,7 @@ namespace HelloWorld.Droid
 					var tab = args.Tab;
 					if (tab.Position == 1)
 					{
+						_otherFragment.enableSpinner();
 						await _otherFragment.FetchTopRatedMovies();
 					}
 

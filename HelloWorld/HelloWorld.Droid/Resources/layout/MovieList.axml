@@ -5,6 +5,7 @@
   <include
       android:id="@+id/toolbar"
       layout="@layout/toolbar" />
+
   <ListView
     android:id="@+id/namelistview"
     android:layout_width="fill_parent"

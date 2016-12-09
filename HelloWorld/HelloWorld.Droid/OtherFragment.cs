@@ -9,8 +9,6 @@ using HelloWorld.Model;
 using System.Threading.Tasks;
 using Android.App;
 
-using System.Collections.Generic;
-
 using Fragment = Android.Support.V4.App.Fragment;
 
 namespace HelloWorld.Droid
@@ -19,6 +17,7 @@ namespace HelloWorld.Droid
 	{
 		private Movies _movies;
 		private ProgressBar spinner;
+		private View rootView;
 
 		public override void OnCreate(Bundle bundle)
 		{
@@ -30,12 +29,17 @@ namespace HelloWorld.Droid
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
-			var rootView = inflater.Inflate(Resource.Layout.TopRated, container, false);
+			rootView = inflater.Inflate(Resource.Layout.TopRated, container, false);
 
 			spinner = rootView.FindViewById<ProgressBar>(Resource.Id.marker_progress2);
-			spinner.Visibility = ViewStates.Visible;
+			//spinner.Visibility = ViewStates.Visible;
 
 			return rootView;
+		}
+
+		public void enableSpinner()
+		{
+			spinner.Visibility = ViewStates.Visible;
 		}
 
 		public async Task FetchTopRatedMovies()
@@ -54,9 +58,8 @@ namespace HelloWorld.Droid
 				_movies.AddMovie(i, resp, response2, tmpmovie);
 			}
 
-			var intent = new Intent(Context, typeof(MovieListActivity));
-			intent.PutExtra("movieList", JsonConvert.SerializeObject(_movies.AllMovies));
-			StartActivity(intent);
+			var listview = rootView.FindViewById<ListView>(Resource.Id.namelistview);
+			listview.Adapter = new MovieListAdapter(this.Activity, _movies.AllMovies);
 
 			spinner.Visibility = ViewStates.Gone;
 		}
