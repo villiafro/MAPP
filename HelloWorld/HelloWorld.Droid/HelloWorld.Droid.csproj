@@ -111,6 +111,7 @@
     <Compile Include="TabsFragmentPagerAdapter.cs" />
     <Compile Include="OtherFragment.cs" />
     <Compile Include="ToolBarTabs.cs" />
+    <Compile Include="DetailActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -136,6 +137,8 @@
     <AndroidResource Include="Resources\layout\toolbar.xml" />
     <AndroidResource Include="Resources\layout\MovieList.axml" />
     <AndroidResource Include="Resources\layout\TopRated.axml" />
+    <AndroidResource Include="Resources\layout\Detail.axml" />
+    <AndroidResource Include="Resources\drawable-hdpi\not_found.png" />
   </ItemGroup>
   <Import Project="..\..\MovieDownload\MovieDownload.projitems" Label="Shared" Condition="Exists('..\..\MovieDownload\MovieDownload.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

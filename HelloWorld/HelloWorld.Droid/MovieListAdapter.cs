@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Android.App;
 using Android.Views;
@@ -6,7 +7,7 @@ using Square.Picasso;
 
 namespace HelloWorld.Droid
 {
-    public class MovieListAdapter : BaseAdapter<Movie>
+	public class MovieListAdapter : BaseAdapter<Movie>
     {
         private readonly Activity _context;
         private const string ImageUrl = "http://image.tmdb.org/t/p/w92";
@@ -57,7 +58,7 @@ namespace HelloWorld.Droid
             return view;
         }
 
-        public override int Count
+		public override int Count
         {
             get
             {
@@ -72,5 +73,7 @@ namespace HelloWorld.Droid
                 return _movieList[position];
             }
         }
+
+
     }
 }

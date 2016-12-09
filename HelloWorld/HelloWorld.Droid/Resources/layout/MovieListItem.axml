@@ -9,14 +9,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="AmericanTypewriter"
-        android:textSize="25dp"
+			android:paddingRight="150px"
+
+        android:fontFamily="serif"
+        android:textSize="20dp"
         android:id="@+id/title" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fontFamily="AmericanTypewriter"
-        android:textSize="18dp"
+			android:paddingRight="150px"
+        android:fontFamily="serif"
+        android:textSize="15dp"
         android:id="@+id/actors"
         android:layout_below="@id/title" />
     <ImageView

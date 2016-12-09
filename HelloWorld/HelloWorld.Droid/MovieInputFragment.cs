@@ -38,6 +38,8 @@ namespace HelloWorld.Droid
             button.Click += async delegate {
 
 				button.Enabled = false;
+				search.Enabled = false;
+
                 _movies.AllMovies.Clear();
                 var manager = (InputMethodManager)Context.GetSystemService(Context.InputMethodService);
                 manager.HideSoftInputFromWindow(search.WindowToken, 0);

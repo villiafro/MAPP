@@ -10,6 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
+using Android.Views.InputMethods;
+
 namespace HelloWorld.Droid
 {
 	using Android.Support.Design.Widget;
@@ -46,6 +48,9 @@ namespace HelloWorld.Droid
 					var tab = args.Tab;
 					if (tab.Position == 1)
 					{
+						var manager = (InputMethodManager)activity.GetSystemService(Context.InputMethodService);
+						manager.HideSoftInputFromWindow(tabLayout.WindowToken, 0);
+						
 						_otherFragment.enableSpinner();
 						await _otherFragment.FetchTopRatedMovies();
 					}

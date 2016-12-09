@@ -18,6 +18,7 @@ namespace HelloWorld.Droid
 		private Movies _movies;
 		private ProgressBar spinner;
 		private View rootView;
+		//private ListView;
 
 		public override void OnCreate(Bundle bundle)
 		{
@@ -29,10 +30,10 @@ namespace HelloWorld.Droid
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
+
 			rootView = inflater.Inflate(Resource.Layout.TopRated, container, false);
 
 			spinner = rootView.FindViewById<ProgressBar>(Resource.Id.marker_progress2);
-			//spinner.Visibility = ViewStates.Visible;
 
 			return rootView;
 		}
@@ -61,7 +62,16 @@ namespace HelloWorld.Droid
 			var listview = rootView.FindViewById<ListView>(Resource.Id.namelistview);
 			listview.Adapter = new MovieListAdapter(this.Activity, _movies.AllMovies);
 
+			listview.ItemClick += clickHandler;
+
 			spinner.Visibility = ViewStates.Gone;
+		}
+
+		void clickHandler(object sender, AdapterView.ItemClickEventArgs e)
+		{
+			var intent = new Intent(Context, typeof(DetailActivity));
+			intent.PutExtra("movie", JsonConvert.SerializeObject(_movies.AllMovies[e.Position]));
+			StartActivity(intent);
 		}
 	}
 }
