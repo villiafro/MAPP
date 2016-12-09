@@ -51,24 +51,29 @@ namespace HelloWorld.Droid
                 DM.MovieApi.ApiResponse.ApiSearchResponse<DM.MovieApi.MovieDb.Movies.MovieInfo> response = await movieApi.SearchByTitleAsync(search.Text);
 
 
-                //insert results into arrays
-                foreach (var i in response.Results)
-                {
+				//insert results into arrays
+				if (response != null)
+				{
+					foreach (var i in response.Results)
+					{
 
-                    var resp = await movieApi.GetCreditsAsync(i.Id);
-                    var response2 = await movieApi.FindByIdAsync(i.Id);
+						var resp = await movieApi.GetCreditsAsync(i.Id);
+						var response2 = await movieApi.FindByIdAsync(i.Id);
 
-                    var tmpmovie = new Movie();
+						var tmpmovie = new Movie();
 
-                    _movies.AddMovie(i, resp, response2, tmpmovie);
-                }
-
+						_movies.AddMovie(i, resp, response2, tmpmovie);
+					}	
+				}
+                
                 var intent = new Intent(Context, typeof(MovieListActivity));
                 intent.PutExtra("movieList", JsonConvert.SerializeObject(_movies.AllMovies));
                 StartActivity(intent);
 
                 spinner.Visibility = ViewStates.Gone;
-
+				button.Enabled = true;
+				search.Enabled = true;
+				search.Text = "";
             };
             return rootView;
         }

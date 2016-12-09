@@ -46,7 +46,7 @@ namespace HelloWorld.Droid
                     "drawable",
                     _context.PackageName);
 
-                view.FindViewById<ImageView>(Resource.Id.image).SetBackgroundResource(resourceId);
+                imageview.SetBackgroundResource(resourceId);
             }
             else
             {
